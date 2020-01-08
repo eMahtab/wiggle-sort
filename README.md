@@ -6,8 +6,10 @@ For example, given nums = [3, 5, 2, 1, 6, 4], one possible answer is [1, 6, 2, 5
 
 ### Approach :
 If we carefully see the pattern in the question. 
+
 We can see that A[0] <= A[1] >= A[2] <= A[3] >= A[4] <= A[5]
-So we could actually observe that there is pattern that
+
+So we could actually observe that there is pattern
 `A[even] <= A[odd]` and `A[odd] >= A[even]`
 
 Therefore we can iterate over the array and compare the elements at index `i` and `i-1`.
