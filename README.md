@@ -45,3 +45,6 @@ Above implementation have runtime complexity of O(n) and space complexity of O(1
 Runtime Complexity = O(n)
 Space Complexity   = O(1)
 ```
+
+## References:
+http://buttercola.blogspot.com/2015/09/leetcode-wiggle-sort.html
