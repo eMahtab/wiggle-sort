@@ -12,32 +12,30 @@ We can see that A[0] <= A[1] >= A[2] <= A[3] >= A[4] <= A[5]
 So we could actually observe that there is pattern
 `A[even] <= A[odd]` and `A[odd] >= A[even]`
 
-Therefore we can iterate over the array and compare the elements at index `i` and `i-1`.
-If we find that above condition is not satisfied at index `i` in the array, then we can just swap the elements at index `i` and `i-1`.
+Therefore we can iterate over the array and compare the elements at index `i` and `i+1`.
+If we find that above condition is not satisfied at index `i` in the array, then we can just swap the elements at index `i` and `i+1`.
 
 ### Implementation :
 
 ```java
-  public static void wiggleSort(int[] arr) {
-      if(arr == null || arr.length <= 1)
-        return;
-      for(int i = 1; i < arr.length; i++) {
-        if(i % 2 == 1) {
-          if(arr[i] < arr[i-1]) 
-            swap(arr,i, i-1);
-        } else {
-          if(arr[i] > arr[i-1]) 
-            swap(arr, i, i-1);
+  class Solution {
+    public void wiggleSort(int[] nums) {
+        if (nums == null || nums.length < 2)
+            return;
+        for(int i = 0; i < nums.length - 1; i++) {
+            if(i % 2 == 0 && nums[i] > nums[i+1])
+                swap(nums, i, i+1);
+            else if(i % 2 == 1 && nums[i] < nums[i+1])
+                swap(nums, i, i+1);
         }
-      }
-  }
- 
-
-   private static void swap(int[] arr, int i , int j) {
-	int temp = arr[i];
-	arr[i] = arr[j];
-	arr[j] = temp;
-   }
+    }
+    
+    private void swap(int[] nums, int i , int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
 ```
 Above implementation have runtime complexity of O(n) and space complexity of O(1)
 
